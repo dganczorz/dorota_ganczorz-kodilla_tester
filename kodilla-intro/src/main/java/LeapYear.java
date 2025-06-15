@@ -9,23 +9,15 @@ public class LeapYear {
      * **/
     public static void checkLeapYear(int year) {
         boolean isLeap;
-        String calendar = "";
+        String calendar;
         if (year >= 1582) {
             calendar = "Gregorian";
             if (year % 4 == 0 && year % 100 != 0) {
                 isLeap = true;
-            } else if (year % 4 == 0 && year % 400 == 0) {
-                isLeap = true;
-            } else {
-                isLeap = false;
-            }
+            } else isLeap = year % 4 == 0 && year % 400 == 0;
         } else {
             calendar = "Julian";
-            if (year % 4 == 0) {
-                isLeap = true;
-            } else {
-                isLeap = false;
-            }
+            isLeap = year % 4 == 0;
         }
         if (isLeap) {
             System.out.printf("%s is a leap year in %s calendar!", year, calendar);
